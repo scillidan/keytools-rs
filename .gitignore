@@ -1,0 +1,12 @@
+# Rust
+target/
+**/*.rs.bk
+*.pdb
+
+# First-run generated files next to dev exes (target/ is ignored anyway, but keep repo root clean)
+# Per-app default configs are embedded via include_str!; user configs live next to installed exes.
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db

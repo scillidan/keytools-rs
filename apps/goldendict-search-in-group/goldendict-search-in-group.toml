@@ -1,0 +1,25 @@
+# goldendict-search-in-group — press a group hotkey to look up the current
+# clipboard text in GoldenDict restricted to that dictionary group.
+# Ported from AHK-GoldenDictSearchInGroup.
+
+[goldendict]
+# GoldenDict executable (searched via PATH if it has no directory part).
+executable = "goldendict"
+# true  -> use --popup-group-name (small popup window)
+# false -> use --group-name (main window)
+clipboard_hotkey_enabled = false
+
+[messages]
+no_selection = "No text copied. Please select the word to query first."
+
+# Up to 10 groups, each with a hotkey. Hotkey syntax: kit style
+# (alt+shift+z) or AHK style (!+z, ^!+g, #f2 — ^=ctrl !=alt +=shift #=win).
+# A doubled final character means "press twice within 400 ms":
+# !xx = press Alt+X twice. Empty `name` entries are ignored.
+[[group]]
+name = ""
+hotkey = ""
+
+# [[group]]
+# name = "default"
+# hotkey = "!+z"

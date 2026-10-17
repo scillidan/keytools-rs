@@ -1,0 +1,18 @@
+# goldendict-auto-search — bind windows (hotkey on the window under the
+# cursor, default Ctrl+Alt+Shift+G) so that:
+#   double_click_enabled: double-clicking a word copies it and queries GoldenDict
+#   clipboard_enabled:    any clipboard change inside a bound window queries
+# Ported from AHK-GoldenDictAutoSearch (INI -> TOML).
+
+[goldendict]
+executable = "goldendict"
+double_click_group = "default"
+clipboard_group = "translate"
+clipboard_hotkey_enabled = false   # true = --popup-group-name, false = --group-name
+
+[settings]
+double_click_enabled = true
+clipboard_enabled = false
+
+[hotkeys]
+toggle_key = "^!+g"

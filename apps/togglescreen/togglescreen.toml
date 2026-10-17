@@ -1,0 +1,7 @@
+# togglescreen — turn the monitor off with a hotkey.
+# Any key/mouse input wakes it again (Windows and X11 behave the same).
+# Combo syntax: ctrl+alt+shift+f2, win+f2, ctrl+alt+shift+insert, ...
+# Ported from ArturTkaczuk/toggle-screen-autohotkey (default Win+F2).
+
+[general]
+hotkey = "win+f2"

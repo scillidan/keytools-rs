@@ -1,0 +1,7 @@
+# keyboard-locker — press the shortcut to lock your keyboard (all keys are
+# swallowed); press it again to unlock. The mouse stays active, so the tray
+# menu always works. Clean-room rewrite of sophice/ahk-keyboard-locker (MIT).
+# Combo syntax: ctrl+alt+shift+insert, win+l, ...
+
+[general]
+shortcut = "ctrl+alt+shift+insert"

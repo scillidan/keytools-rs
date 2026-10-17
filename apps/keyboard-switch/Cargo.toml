@@ -1,0 +1,16 @@
+[package]
+name = "keyboard-switch"
+description = "Cycle keyboard layouts with a hotkey (all installed or a defined list). Rust port of AHK-KeyboardSwitch"
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+kit = { path = "../../crates/kit" }
+serde.workspace = true
+toml.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

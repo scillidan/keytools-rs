@@ -1,0 +1,20 @@
+# screen-ocr — press a hotkey, select a screen region, get its text in the
+# clipboard (RapidOCR / PaddleOCR ONNX, via `uv run`).
+# Ported from AHK-ScreenOCR (INI -> TOML).
+
+[ocr]
+global_hotkey = "^!o"        # "" disables
+notify_method = "traytip"    # traytip | snoretoast
+notify = true
+screenshot_tool = "builtin"  # builtin | flameshot
+
+[rapidocr]
+hotkey = "^!+o"              # "" disables
+languages = ["ch"]           # first is the default; see `Check Languages`
+
+# Extra per-language hotkeys, lang = hotkey (e.g. chinese_cht = "^!+c").
+[rapidocr_lang_hotkey]
+
+[notify_messages]
+recog_msg = "Recognizing..."
+no_text_msg = "No text found"

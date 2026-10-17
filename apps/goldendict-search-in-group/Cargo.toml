@@ -1,0 +1,17 @@
+[package]
+name = "goldendict-search-in-group"
+description = "Search the clipboard text in GoldenDict, restricted to a dictionary group, via per-group hotkeys. Rust port of AHK-GoldenDictSearchInGroup"
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+kit = { path = "../../crates/kit" }
+serde.workspace = true
+toml.workspace = true
+arboard.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

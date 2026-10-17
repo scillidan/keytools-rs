@@ -1,0 +1,16 @@
+[package]
+name = "togglescreen"
+description = "Turn the monitor off with a hotkey (any input wakes it). Rust port of toggle-screen-autohotkey"
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+kit = { path = "../../crates/kit" }
+serde.workspace = true
+toml.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

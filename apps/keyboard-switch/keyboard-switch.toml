@@ -1,0 +1,23 @@
+# keyboard-switch — press the switch hotkey to cycle keyboard layouts.
+# Ported from AHK-KeyboardSwitch (INI -> TOML).
+#
+# switch_mode:
+#   "InAll"    — cycle through every layout returned by GetKeyboardLayoutList
+#   "InDefine" — cycle through [[layout]] below, applying each layout by
+#                sending Alt+Shift+<shortcut> (per Windows layout hotkeys)
+
+[settings]
+switch_mode = "InAll"
+switch_hotkey = "capslock"
+swap_esc_caps = false
+notify_on_switch = true
+
+# InDefine cycle list (lowercase 8-hex KLID + the Alt+Shift+N digit).
+# Defaults to US + Chinese (Simplified) when empty, as the AHK original.
+[[layout]]
+klid = "00000409"
+shortcut = "1"
+
+[[layout]]
+klid = "00000804"
+shortcut = "2"

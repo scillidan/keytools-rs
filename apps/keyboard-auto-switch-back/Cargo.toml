@@ -1,0 +1,16 @@
+[package]
+name = "keyboard-auto-switch-back"
+description = "Force a target keyboard layout when the foreground window changes. Rust port of AHK-KeyboardAutoSwitchBack"
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+kit = { path = "../../crates/kit" }
+serde.workspace = true
+toml.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

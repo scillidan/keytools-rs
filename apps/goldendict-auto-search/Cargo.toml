@@ -1,0 +1,17 @@
+[package]
+name = "goldendict-auto-search"
+description = "Bind windows so double-click copies+queries GoldenDict, and/or monitor the clipboard in bound windows. Rust port of AHK-GoldenDictAutoSearch"
+license.workspace = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+kit = { path = "../../crates/kit" }
+serde.workspace = true
+toml.workspace = true
+arboard.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true

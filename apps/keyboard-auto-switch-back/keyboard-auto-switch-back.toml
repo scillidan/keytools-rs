@@ -1,0 +1,8 @@
+# keyboard-auto-switch-back — when the foreground window changes, the layout
+# is forced back to TargetLayout after SwitchDelay ms.
+# Ported from AHK-KeyboardAutoSwitchBack (INI -> TOML).
+# TargetLayout is an HKL like 0x04090409 (loword = language ID).
+
+[general]
+switch_delay = 600
+target_layout = "0x04090409"
