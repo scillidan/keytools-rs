@@ -130,7 +130,8 @@ fn build_menu(entries: &[Entry]) -> (Menu, Vec<(MenuId, String)>) {
                 let _ = menu.append(&PredefinedMenuItem::separator());
             }
             Entry::Item(label) => {
-                let item = MenuItemBuilder::new().text(*label).build();
+                // muda's builder defaults to disabled, which greys out every row.
+                let item = MenuItemBuilder::new().text(*label).enabled(true).build();
                 ids.push((item.id().clone(), label.to_string()));
                 let _ = menu.append(&item);
             }
@@ -140,7 +141,7 @@ fn build_menu(entries: &[Entry]) -> (Menu, Vec<(MenuId, String)>) {
                 } else {
                     label.to_string()
                 };
-                let item: MenuItem = MenuItemBuilder::new().text(text).build();
+                let item: MenuItem = MenuItemBuilder::new().text(text).enabled(true).build();
                 ids.push((item.id().clone(), label.to_string()));
                 let _ = menu.append(&item);
             }

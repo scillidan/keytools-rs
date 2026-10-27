@@ -1,8 +1,9 @@
 # keytools-rs
 
-Rust reimplementation of the AHK- tool suite, with cross-platform structure.
-Rust successors of the AHK-* tools; no AutoHotkey required. Full parity on
-Windows; Linux backends land per PLAN.md phase 5.
+Windows-first desktop utility suite: Rust engine for low-level tools, optional
+AHK v2 / keysharp glue for orchestration tools. No whole-suite keysharp
+rewrite. Windows is the full-parity target; Linux means X11 only (see
+`DECISIONS.md`).
 
 Reimplements (see PLAN.md for the full mapping):
 
@@ -11,6 +12,19 @@ Reimplements (see PLAN.md for the full mapping):
 - the five `AHK-*` projects under `C:\Users\User\Share\projs` (GoldenDict auto
   search / search-in-group, keyboard auto-switch-back / switch, screen OCR)
 - `keyboard-locker` (clean-room MIT rewrite of sophice/ahk-keyboard-locker)
+
+## Scope
+
+[`DECISIONS.md`](DECISIONS.md) is the source of truth for direction and scope.
+
+- Rust is the engine: `kit` + one bin per tool. Do not port the suite to
+  keysharp.
+- Windows first. Linux means X11 only; Wayland and macOS are out of scope.
+- keysharp is only a glue experiment for orchestration tools (GoldenDict,
+  Flameshot, screen OCR), never for low-level window/input work. Native AHK v2
+  is the default for Windows-only glue.
+- A new tool starts with a decision entry in `DECISIONS.md`, not with code.
+- Glue scripts, if any, live outside this Cargo workspace.
 
 Conventions inherited from keymap-rs: anyhow error handling, TOML config created
 next to the exe on first run (`include_str!` default), `>` tray-menu prefix for
@@ -22,8 +36,8 @@ active toggles, inline `#[cfg(test)]` tests, `just dist` packaging.
 - [x] Phase 2: `togglescreen`, `keyboard-locker`, `goldendict-search-in-group` (built + smoke-tested)
 - [x] Phase 3: `goldendict-auto-search`, `keyboard-auto-switch-back`, `keyboard-switch` (built + smoke-tested)
 - [x] Phase 4: `screen-ocr` (built + smoke-tested; OCR comparison pending hands-on verification)
-- [ ] Phase 5: Linux backends (kit::linux has stubs + checklist)
-- [ ] Phase 6: scoop-pile manifests
+- [ ] Phase 5: Linux X11 backends (kit::linux has stubs + checklist); Wayland out of scope
+- [ ] Phase 6: scoop-pile manifests (product tools first)
 
 ## Commands
 
