@@ -1,6 +1,9 @@
 [workspace]
 resolver = "2"
-members = ["crates/*", "apps/*"]
+# The five apps moved to ../keyboard-tools-rs in P0. Their sources stay here
+# for reference, but they must not build in this workspace: both repos share
+# CARGO_TARGET_DIR, so an old build would overwrite the new exes.
+members = ["crates/*"]
 
 [workspace.package]
 version = "0.1.0"

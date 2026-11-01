@@ -5,9 +5,14 @@ AHK v2 / keysharp glue for orchestration tools. No whole-suite keysharp
 rewrite. Windows is the full-parity target; Linux means X11 only (see
 `DECISIONS.md`).
 
-> **Superseded (2026-11-01):** the five remaining tools move to
-> [`../keyboard-tools-rs/`](../keyboard-tools-rs/). This repo stays the
-> reference baseline until that workspace imports the code.
+> **Superseded (2026-11-01):** the five remaining tools moved to
+> [`../keyboard-tools-rs/`](../keyboard-tools-rs/); P0 imported them. This repo
+> is the historical baseline.
+>
+> **Do not build here.** Both repos share
+> `CARGO_TARGET_DIR=C:\Users\User\.cache\cargo`, so an old build overwrites
+> `keyboard-locker.exe`, `keyboard-switch.exe`, etc. with pre-fix code. Build
+> and run from `../keyboard-tools-rs`.
 
 Reimplements (see PLAN.md for the full mapping):
 
