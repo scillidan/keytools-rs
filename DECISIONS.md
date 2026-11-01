@@ -91,8 +91,8 @@ backends, but it is alpha, compiles scripts through Roslyn, and lacks
 DllCall/COM/registry off Windows. The benefit must be measured, not assumed.
 
 **Decision:** Any keysharp spike is limited to 3 days and to a glue tool.
-Order: FlameshotWindow, GoldenDict SearchInGroup, GoldenDict AutoSearch,
-ScreenOCR. It must pass all gates:
+Order: FlameshotWindow, GoldenDict SearchInGroup, GoldenDict AutoSearch. It
+must pass all gates:
 
 - cold start under 2 s; warm start (compile daemon) under 300 ms;
 - RSS under 150 MB for the script process;
@@ -147,18 +147,20 @@ justify a decision entry stay out.
 | GoldenDict AutoSearch | `../AHK-GoldenDictAutoSearch/` | glue | Windows + Linux X11 | experiment | keep Rust baseline; keysharp candidate #3 |
 | Keyboard AutoSwitchBack | `../AHK-KeyboardAutoSwitchBack/` | engine | Windows | product | ship with Windows suite |
 | Keyboard Switch | `../AHK-KeyboardSwitch/` | engine | Windows | product | ship with Windows suite |
-| ScreenOCR | `../AHK-ScreenOCR/` | glue | Windows + Linux X11 | experiment | keep Rust baseline; keysharp candidate #4 |
 | FlameshotWindow | `../AHK-FlameshotWindow/` | glue | Windows + Linux X11 | experiment | keysharp candidate #1 |
 | RectangleWin / rectangle-rs | `ahmetb/RectangleWin`, `../rectangle-rs/` | engine | Windows + Linux X11 | product | P1 interaction polish |
 | QuickSwitch | `fenchai23/QuickSwitch` (active: `JoyHak/QuickSwitch`) | separate app | Windows | experiment | separate Windows-only product after P2; no cross-platform |
 | window-switcher | `sigoden/window-switcher` | separate app | Windows | experiment | separate product after P2 |
 | ahk-keyboard-locker | `sophice/ahk-keyboard-locker` | engine | Windows (+ Linux X11 later) | product | Windows release; Linux X11 later |
 | rbtray | `benbuck/rbtray` | separate app | Windows | experiment | defer; fragile, Windows-only |
-| toggle-screen | `ArturTkaczuk/toggle-screen-autohotkey` | engine | Windows + Linux X11 | product | ship with Windows suite |
 
 `product` tools are the only ones with suite release manifests. `experiment`
 tools keep their current Rust baseline and existing standalone manifests until
 a spike or a decision promotes them.
+
+Moved out of this repo on 2026-11-01: `toggle-screen` is now `toggleScreen` in
+`../desktop-tools-rs`, and `ScreenOCR` is now `dt-ocr` in
+`../desktop-tools-rs-ex`. They keep their own release manifests there.
 
 Dropped for now: cross-platform QuickSwitch, cross-platform rbtray, and all
 macOS ports. These need a new decision entry to return.

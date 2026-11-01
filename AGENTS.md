@@ -1,17 +1,22 @@
-# keytools-rs
+# keytools-rs (baseline)
 
-Windows-first desktop utility suite: Rust engine for low-level tools, optional
+Windows-first keyboard utility suite: Rust engine for low-level tools, optional
 AHK v2 / keysharp glue for orchestration tools. No whole-suite keysharp
 rewrite. Windows is the full-parity target; Linux means X11 only (see
 `DECISIONS.md`).
 
+> **Superseded (2026-11-01):** the five remaining tools move to
+> [`../keyboard-tools-rs/`](../keyboard-tools-rs/). This repo stays the
+> reference baseline until that workspace imports the code.
+
 Reimplements (see PLAN.md for the full mapping):
 
-- `togglescreen` — turn the monitor off with a hotkey (new; replaces the idea of
-  `scoop install pile/togglescreen`)
-- the five `AHK-*` projects under `C:\Users\User\Share\projs` (GoldenDict auto
-  search / search-in-group, keyboard auto-switch-back / switch, screen OCR)
+- the four `AHK-*` projects under `C:\Users\User\Share\projs` (GoldenDict auto
+  search / search-in-group, keyboard auto-switch-back / switch)
 - `keyboard-locker` (clean-room MIT rewrite of sophice/ahk-keyboard-locker)
+
+Monitor power and screen OCR were moved out to `../desktop-tools-rs` and
+`../desktop-tools-rs-ex`; do not add them back here.
 
 ## Scope
 
@@ -20,9 +25,9 @@ Reimplements (see PLAN.md for the full mapping):
 - Rust is the engine: `kit` + one bin per tool. Do not port the suite to
   keysharp.
 - Windows first. Linux means X11 only; Wayland and macOS are out of scope.
-- keysharp is only a glue experiment for orchestration tools (GoldenDict,
-  Flameshot, screen OCR), never for low-level window/input work. Native AHK v2
-  is the default for Windows-only glue.
+- keysharp is only a glue experiment for orchestration tools (GoldenDict),
+  never for low-level window/input work. Native AHK v2 is the default for
+  Windows-only glue.
 - A new tool starts with a decision entry in `DECISIONS.md`, not with code.
 - Glue scripts, if any, live outside this Cargo workspace.
 
@@ -33,11 +38,11 @@ active toggles, inline `#[cfg(test)]` tests, `just dist` packaging.
 ## Status
 
 - [x] Phase 1: workspace + `kit` crate (config, keys, tray, hotkeys, win32 helpers)
-- [x] Phase 2: `togglescreen`, `keyboard-locker`, `goldendict-search-in-group` (built + smoke-tested)
+- [x] Phase 2: `keyboard-locker`, `goldendict-search-in-group` (built + smoke-tested)
 - [x] Phase 3: `goldendict-auto-search`, `keyboard-auto-switch-back`, `keyboard-switch` (built + smoke-tested)
-- [x] Phase 4: `screen-ocr` (built + smoke-tested; OCR comparison pending hands-on verification)
-- [ ] Phase 5: Linux X11 backends (kit::linux has stubs + checklist); Wayland out of scope
-- [ ] Phase 6: scoop-pile manifests (product tools first)
+- [ ] Phase 4: Linux X11 backends (kit::linux has stubs + checklist); Wayland out of scope
+- [ ] Phase 5: scoop-pile manifests (product tools first)
+- [x] Moved out: `togglescreen` -> `../desktop-tools-rs`, `screen-ocr` -> `../desktop-tools-rs-ex`
 
 ## Commands
 
